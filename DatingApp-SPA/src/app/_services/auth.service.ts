@@ -26,4 +26,12 @@ export class AuthService {
   register(model: any) {
     return this.http.post(this.baseUrl + 'register', model);
     }
+
+    loggedIn() {
+      const token = localStorage.getItem('token');
+      if (token) {
+        return true;
+      }
+      return false;
+    }
 }
