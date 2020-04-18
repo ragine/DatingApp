@@ -7,6 +7,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 import { AppComponent } from './app.component';
@@ -19,13 +20,14 @@ import { MemberListComponent } from './members/member-list/member-list.component
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { appRoutes } from './routes';
-import { MemberCardComponent } from './members/member-list/member-card/member-card.component';
-import { MemberDetailComponent } from './members/member-list/member-detail/member-detail.component';
+import { MemberCardComponent } from './members/member-card/member-card.component';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
-import { MemberEditComponent } from './members/member-list/member-edit/member-edit.component';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 
 
 export class CustomHammerConfig extends HammerGestureConfig {
@@ -46,7 +48,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
       MemberDetailComponent,
       MemberEditComponent,
       ListsComponent,
-      MessagesComponent
+      MessagesComponent,
+      PhotoEditorComponent,
    ],
    imports: [
       BrowserModule,
@@ -57,6 +60,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       BrowserAnimationsModule,
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
+      FileUploadModule
    ],
    providers: [
       AuthService,
