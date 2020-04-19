@@ -7,7 +7,9 @@ import { User } from 'src/app/_models/user';
   styleUrls: ['./member-card.component.css']
 })
 export class MemberCardComponent implements OnInit {
-@Input() user: User;
+  @Input() user: User;
+  defaultPhotoUrl = '../../assets/user.png';
+
   constructor() { }
 
   ngOnInit() {

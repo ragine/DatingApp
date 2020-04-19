@@ -13,6 +13,7 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from '@kolkov
 })
 export class MemberDetailComponent implements OnInit {
   user: User;
+  defaultPhotoUrl = '../../assets/user.png';
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 

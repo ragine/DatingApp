@@ -1,7 +1,7 @@
 import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,6 +28,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
 
 export class CustomHammerConfig extends HammerGestureConfig {
@@ -54,7 +55,16 @@ export class CustomHammerConfig extends HammerGestureConfig {
    imports: [
       BrowserModule,
       HttpClientModule,
+      JwtModule.forRoot({
+         config: {
+            tokenGetter: () => {
+               return localStorage.getItem('token');
+            },
+            whitelistedDomains: ['localhost:5000']
+         }
+      }),
       FormsModule,
+      ReactiveFormsModule,
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
       BrowserAnimationsModule,
